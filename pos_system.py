@@ -1,4 +1,5 @@
 import os
+import eel
 import datetime
 import pathlib
 import pandas as pd
@@ -38,13 +39,13 @@ class Order:
             print(e.errno)     # エラー番号 (17)
             print(e.filename)  # 作成できなかったディレクトリ名 ('foo')
     
-    def add_item_order(self):
+    def add_item_order(self, item_num):
 
         with open(self.reciept_folder + "/" + self.reciept_file, mode='a', encoding="utf8") as f1:     
             f1.write("#### 購入商品 ###\n")
             while True:
-                self.input_item_code = input("商品コードを入力して下さい：")
-                self.item_num = input("何個買いますか：")
+                # self.input_item_code = input("商品コードを入力して下さい：")
+                self.item_num = item_num
                 f1.write("商品コード："+"{}\n".format(self.input_item_code))
                 self.item_order_list.append(self.input_item_code)
                 checkStop = input("買い物を続けますか。続ける場合：Y、中止する場合：Qと入力してください：")
@@ -107,6 +108,7 @@ def main():
 
     # オーダー登録
     # order=Order(item_master)
+    @ eel.expose
     order.add_item_order()
     
     # オーダー表示
