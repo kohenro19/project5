@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>POS SYSTEM</title>
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+    <body>
+        <p>商品コードを入力して下さい</p>
+        <input id="item_code" type="text"><br>
+        <p><button id="register_item_code">登録</button></p>
+
+        <script type="text/javascript" src="./eel.js"></script>
+        <script>
+           register_item_code.addEventListener('click', async () => {
+                if (document.getElementById("item_code").value === '') {
+                    alert("入力してください");
+                } else {
+                    // element = document.getElementById('item_code');
+                    eel.order_function(document.getElementById("item_code").value, document.getElementById("savePlace").value);
+                }
+            })
+            eel.expose(view_log_js);
+            function view_log_js(text){
+                innerHTMLtext.value += text;
+            }
+               
+        </script>
+    </body>
+</html>

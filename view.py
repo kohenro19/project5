@@ -23,23 +23,14 @@ def add_item_master_by_csv(csv_path):
             print("------- マスタ登録完了 ---------")
             # sys.exit()
         
-
-def main():
+@eel.expose
+def order_function(item_code2):
     # マスタ登録
     item_master=add_item_master_by_csv(ITEM_MASTER_CSV_PATH) # CSVからマスタへ登録
     order=Order(item_master,RECEIPT_FOLDER) 
 
-    # # オーダー登録
-    # order.add_item_order()
-    
-    # # オーダー表示
-    # order.view_item_list()
+    order.add_item_order(item_code2)
 
-    eel.init("web")
-    eel.start("index.html")
 
-if __name__ == "__main__":
-    main()
-
-    
-
+eel.init("web")
+eel.start("index.html")

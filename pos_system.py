@@ -97,19 +97,14 @@ def add_item_master_by_csv(csv_path):
             sys.exit()
         
 ### メイン処理
+@ eel.expose
 def main():
     # マスタ登録
     item_master=add_item_master_by_csv(ITEM_MASTER_CSV_PATH) # CSVからマスタへ登録
-    order=Order(item_master,RECEIPT_FOLDER) 
-    # item_master=[]
-    # path = "./item_master.csv"
-    # df = pd.read_csv(path)
-    # item_master.append(Item(df["item_code"], df["item_name"], df["price"]))
 
-    # オーダー登録
-    # order=Order(item_master)
-    @ eel.expose
-    order.add_item_order()
+    order=Order(item_master,RECEIPT_FOLDER) 
+    
+    # order.add_item_order()
     
     # オーダー表示
     order.view_item_list()
