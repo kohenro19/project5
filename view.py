@@ -26,11 +26,13 @@ def add_item_master_by_csv(csv_path):
 
 # マスタ登録
 item_master=add_item_master_by_csv(ITEM_MASTER_CSV_PATH) # CSVからマスタへ登録
-order=Order(item_master,RECEIPT_FOLDER) 
 
 @eel.expose
 def order_function(item_code):
+    order=Order(item_master,RECEIPT_FOLDER) 
     order.add_item_order(item_code)
+
+    order.continute_buy()
 
 
 eel.init("web")
