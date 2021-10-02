@@ -22,14 +22,15 @@ def add_item_master_by_csv(csv_path):
             print("マスタ登録が失敗しました")
             print("------- マスタ登録完了 ---------")
             # sys.exit()
-        
-@eel.expose
-def order_function(item_code2):
-    # マスタ登録
-    item_master=add_item_master_by_csv(ITEM_MASTER_CSV_PATH) # CSVからマスタへ登録
-    order=Order(item_master,RECEIPT_FOLDER) 
 
-    order.add_item_order(item_code2)
+
+# マスタ登録
+item_master=add_item_master_by_csv(ITEM_MASTER_CSV_PATH) # CSVからマスタへ登録
+order=Order(item_master,RECEIPT_FOLDER) 
+
+@eel.expose
+def order_function(item_code):
+    order.add_item_order(item_code)
 
 
 eel.init("web")
