@@ -7,10 +7,29 @@ import pandas as pd
 
 
 class PosSystem:
-    def ___init__(self,item_master)
-        self.item_master = item_master
-    def init_order():
+    def __init__(self,csv_path):
+        self.csv_path = csv_path
+
+    def init_order(self):
         pass
+
+    def add_item_master(self):
+        item_master=[]
+        count=0
+        try:
+            item_master_df=pd.read_csv(self.csv_path,dtype={"item_code":object}) 
+            for item_code,item_name,price in zip(list(item_master_df["item_code"]),list(item_master_df["item_name"]),list(item_master_df["price"])):
+                item_master.append(Item(item_code,item_name,price))
+                print("{}({})".format(item_name,item_code))
+                count+=1
+            print("{}品の登録を完了しました。".format(count))
+            print("------- マスタ登録完了 ---------")
+            return item_master
+        except:
+            print("マスタ登録が失敗しました")
+            print("------- マスタ登録完了 ---------")
+            sys.exit()
+
 
     class order:
         pass
