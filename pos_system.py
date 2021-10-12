@@ -5,6 +5,22 @@ import pathlib
 import pandas as pd
 
 
+
+class PosSystem:
+    def ___init__(self,item_master)
+        self.item_master = item_master
+    def init_order():
+        pass
+
+    class order:
+        pass
+        def add_item_order(item_code, amount):
+            
+            return item_code
+        def checkout(money):
+            pass
+        
+
 ITEM_MASTER_CSV_PATH="./item_master.csv"
 RECEIPT_FOLDER= "receipt"
 
@@ -43,17 +59,17 @@ class Order:
 
         with open(self.reciept_folder + "/" + self.reciept_file, mode='a', encoding="utf8") as f1:     
             f1.write("#### 購入商品 ###\n")
-            while True:
-                # self.input_item_code = input("商品コードを入力して下さい：")
-                self.input_item_code = input_item_code
-                f1.write("商品コード："+"{}\n".format(self.input_item_code))
-                self.item_order_list.append(self.input_item_code)
-                checkStop = input("買い物を続けますか。続ける場合：Y、中止する場合：Qと入力してください：")
-                if checkStop in ["Q", "q", "quit", "end", "終了"]:
-                    break
+        # while True:
+            # self.input_item_code = input("商品コードを入力して下さい：")
+            self.input_item_code = input_item_code
+            f1.write("商品コード："+"{}\n".format(self.input_item_code))
+            self.item_order_list.append(self.input_item_code)
+            # checkStop = input("買い物を続けますか。続ける場合：Y、中止する場合：Qと入力してください：")
+            # if checkStop in ["Q", "q", "quit", "end", "終了"]:
+                # break
             f1.write("################\n")
-
-    # 課題1
+    
+# 課題1
     def view_item_list(self):
         total_price = []
         for order_item_code in self.item_order_list:
