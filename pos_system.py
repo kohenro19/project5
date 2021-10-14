@@ -5,7 +5,6 @@ import pathlib
 import pandas as pd
 
 
-
 class PosSystem:
     def __init__(self,csv_path):
         self.csv_path = csv_path
@@ -30,12 +29,20 @@ class PosSystem:
             print("------- マスタ登録完了 ---------")
             sys.exit()
 
-
+    # 注文と会計
     class order:
         pass
-        def add_item_order(item_code, amount):
-            
-            return item_code
+        def add_item_order(self, item_code, amount):
+           while True:
+                self.input_item_code = input("商品コードを入力して下さい：")
+                self.item_num = input("何個買いますか：")
+
+                line.append("{}".format(self.input_item_code))
+                self.item_order_list.append(self.input_item_code)
+                checkStop = input("買い物を続けますか。続ける場合：Y、中止する場合：Qと入力してください：")
+                if checkStop in ["Q", "q", "quit", "end", "終了"]:
+                    break
+                return item_code
         def checkout(money):
             pass
         

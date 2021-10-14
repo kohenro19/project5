@@ -22,6 +22,7 @@ def add_order_item(item_code:str,amount:str):
     オーダーに商品を追加する
     '''
     global system
+    print(item_code, amount)
     # Orderが存在しなければOrderインスタンスを作成
     if system.order == None:
         system.init_order()
@@ -70,3 +71,6 @@ def init_pos_system():
 if __name__ == "__main__":
     init_pos_system()
     # desktop.start(app_name,end_point,size)
+
+    eel.init("web")
+    eel.start("index.html")

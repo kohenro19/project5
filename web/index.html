@@ -7,8 +7,7 @@
     <body>
         <p>商品コードと数量を入力して下さい</p>
         <input id="item_code" type="text"><br>
-        <input id="item_num" size="5" type="text"><br>
-        <textarea id="innerHTMLtext"></textarea>
+        <input id="amount" size="5" type="text"><br>
         <p><button id="register_item_code">登録</button></p>
 
         
@@ -17,15 +16,11 @@
         <script type="text/javascript" src="./eel.js"></script>
         <script>
             register_item_code.addEventListener('click', async () => {
-                if (document.getElementById("item_code").value === '' || document.getElementById("item_num").value === '') {
+                if (document.getElementById("item_code").value === '' || document.getElementById("amount").value === '') {
                     alert("入力してください");
                 } else {
                     // element = document.getElementById('item_code');
-                    let i = 0;
-                        while(i <= 10) {
-                            eel.order_function(document.getElementById("item_code").value, document.getElementById("item_num").value);
-                            i++;
-                        }
+                    eel.add_order_item(document.getElementById("item_code").value, document.getElementById("amount").value);
                 }
                 eel.expose(view_log_js);
                 function view_log_js(text){
