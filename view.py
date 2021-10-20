@@ -34,6 +34,20 @@ def add_order_item(item_code:str,amount:str):
         res_text = system.order.get_order_items()
         eel.view_order_items(res_text)
     
+@eel.expose
+def checkout_order(money):
+    '''
+    会計処理
+    '''
+    global system
+    change_money = system.order.checkout(int(money))
+    if change_money < 0:
+        message = f"金額が {-change_money}円 不足しています。"
+    else:
+        message = f"{change_money}円のお返しです。\nお買い上げありがとうございました。"
+        # system.order.export_receipt(deposit_money=int(money), change_money=change_money)
+        system.init_order()
+    eel.alertJs(message)
 
 def init_pos_system():
     global system

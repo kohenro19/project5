@@ -10,7 +10,6 @@ class Item():
         self.item_code = item_code
         self.item_name = item_name
         self.item_price = price
-    pass
 
 class Order():
     def __init__(self, item_master) -> None:
@@ -32,9 +31,6 @@ class Order():
                 return master.item_name, master.item_price
 
     def get_order_items(self):
-        '''
-        オーダーの全情報をテキストをして取得する
-        '''
         res = ""
         num = 1
         total_price = 0
@@ -51,7 +47,18 @@ class Order():
         res += f"合計: ￥{total_price}円 | {total_count}個\n"
 
         return res
-        
+
+    def total_price(self):
+        total_price = []
+        for item_code, count in zip(self.item_order_list, self.item_count_list):
+            for item in self.item_master:
+                if item.item_code == item_code:
+                    total_price.append(item.item_price * count)    
+        return sum(total_price)
+
+    def checkout(self, deposit_money):
+        return deposit_money - self.total_price()  
+
 
 class PosSystem():
     def __init__(self, item_master_csv) -> None:
@@ -75,7 +82,11 @@ class PosSystem():
             print("マスタ登録が失敗しました")
             print("------- マスタ登録完了 ---------")
             sys.exit()
+            
+
+
         
+
     def init_order(self):
         self.order = Order(self.item_master) 
     
