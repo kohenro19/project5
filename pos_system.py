@@ -48,7 +48,7 @@ class Order():
 
         return res
 
-    def total_price(self):
+    def calc_total_price(self):
         total_price = []
         for item_code, count in zip(self.item_order_list, self.item_count_list):
             for item in self.item_master:
@@ -57,7 +57,7 @@ class Order():
         return sum(total_price)
 
     def checkout(self, deposit_money):
-        return deposit_money - self.total_price()  
+        return deposit_money - self.calc_total_price()  
 
 
 class PosSystem():

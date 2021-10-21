@@ -33,6 +33,12 @@ def add_order_item(item_code:str,amount:str):
     else:
         res_text = system.order.get_order_items()
         eel.view_order_items(res_text)
+
+@eel.expose
+def clear_order():
+    global system
+    system.init_order()
+    eel.view_order_items("")
     
 @eel.expose
 def checkout_order(money):
