@@ -31,7 +31,7 @@ def verify_employee_no(employee_no):
         eel.alertJs2("お疲れ様です。")
     else:
         # eel.alertJs2(f"『{employee_no}』は登録されていません")
-        return -1
+        return "false"
 
 @eel.expose
 def add_order_item(item_code:str,amount:str):
