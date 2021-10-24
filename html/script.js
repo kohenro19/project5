@@ -14,8 +14,13 @@ function undisplay(){
 
 login_btn.addEventListener("click", () => {
     if (employee_no.value != "") {
-        alert("いつもお疲れ様です！")
-        display()
+        if (eel.verify_employee_no(employee_no.value)) {
+            // alert("いつもお疲れ様です！")
+            display()
+        } else {
+            alert("従業員番号が間違っています")
+        }
+
     } else {
         alert("従業員番号を入力してください")
     }
@@ -52,4 +57,10 @@ eel.expose(alertJs)
 function alertJs(text){
     alert(text)
 }
+
+eel.expose(alertJs2)
+function alertJs2(text2){
+    alert(text2)
+}
+
 

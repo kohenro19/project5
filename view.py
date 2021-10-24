@@ -18,6 +18,22 @@ HTML側とのやり取りは全てview.pyファイルに纏めている
 '''
 
 @eel.expose
+def verify_employee_no(employee_no):
+
+    print(employee_no)
+    valid_employees = [
+        1,
+        20, 
+        30
+        ]
+
+    if employee_no in valid_employees:
+        eel.alertJs2("お疲れ様です。")
+    else:
+        # eel.alertJs2(f"『{employee_no}』は登録されていません")
+        return -1
+
+@eel.expose
 def add_order_item(item_code:str,amount:str):
     '''
     オーダーに商品を追加する

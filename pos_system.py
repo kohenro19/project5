@@ -81,14 +81,11 @@ class PosSystem():
         except:
             print("マスタ登録が失敗しました")
             print("------- マスタ登録完了 ---------")
-            sys.exit()
-            
-
-
-        
+            sys.exit()  
 
     def init_order(self):
         self.order = Order(self.item_master) 
-    
-if __name__ == "__main__":
-    main()
+
+  
+# if __name__ == "__main__":
+#     main()
