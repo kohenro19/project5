@@ -14,7 +14,7 @@ function undisplay(){
 
 login_btn.addEventListener("click", () => {
     if (employee_no.value != "") {
-        checkFlag = eel.verify_employee_no(employee_no.value);
+        checkFlag = async eel.verify_employee_no(employee_no.value)();
         console.log(checkFlag)
         if (checkFlag) {
             alert("いつもお疲れ様です！")
