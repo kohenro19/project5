@@ -14,15 +14,17 @@ function undisplay(){
 
 login_btn.addEventListener("click", () => {
     if (employee_no.value != "") {
-        if (eel.verify_employee_no(employee_no.value)) {
-            // alert("いつもお疲れ様です！")
-            display()
+        checkFlag = eel.verify_employee_no(employee_no.value);
+        console.log(checkFlag)
+        if (checkFlag) {
+            alert("いつもお疲れ様です！")
+            display();
         } else {
-            alert("従業員番号が間違っています")
+            alert("従業員番号が間違っています");
         }
 
     } else {
-        alert("従業員番号を入力してください")
+        alert("従業員番号を入力してください");
     }
 })
 

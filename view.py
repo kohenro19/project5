@@ -22,13 +22,14 @@ def verify_employee_no(employee_no):
 
     print(employee_no)
     valid_employees = [
-        1,
-        20, 
-        30
+        "1",
+        "20", 
+        "30"
         ]
 
     if employee_no in valid_employees:
-        eel.alertJs2("お疲れ様です。")
+        # eel.alertJs2("お疲れ様です。")
+        return "true"
     else:
         # eel.alertJs2(f"『{employee_no}』は登録されていません")
         return "false"
