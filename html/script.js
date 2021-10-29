@@ -12,9 +12,13 @@ function undisplay(){
     control_panel.style.display = "none";
 }
 
+async function checkEmployeeNo(){
+    return await eel.verify_employee_no(employee_no.value)();
+}
+
 login_btn.addEventListener("click", () => {
     if (employee_no.value != "") {
-        checkFlag = async eel.verify_employee_no(employee_no.value)();
+        let checkFlag = checkEmployeeNo();
         console.log(checkFlag)
         if (checkFlag) {
             alert("いつもお疲れ様です！")
