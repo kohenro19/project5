@@ -29,10 +29,10 @@ def verify_employee_no(employee_no):
 
     if employee_no in valid_employees:
         # eel.alertJs2("お疲れ様です。")
-        return "true"
+        return True
     else:
         # eel.alertJs2(f"『{employee_no}』は登録されていません")
-        return "false"
+        return False
 
 @eel.expose
 def add_order_item(item_code:str,amount:str):
